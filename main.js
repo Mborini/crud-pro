@@ -79,7 +79,7 @@ submit.onclick=function(){
         category:category.value.toLowerCase()
     }
     if(title.value!='' && price.value!=''&& category.value!=''&& newPro.count<101)
-    if(mood=='create'){
+   { if(mood=='create'){
 
 
  if(newPro.count > 1){
@@ -103,7 +103,7 @@ submit.onclick=function(){
 
     }
 
-   
+}
     
     
     //add value of obj and save in array
@@ -134,12 +134,12 @@ function clearData(){
 function showData(){
     getTotal();
     let table='';
-    for(let i=1; i < dataPro.length;i++){
+    for(let i=0; i<dataPro.length;i++){
         table +=`
         <tbody>
         
         <tr>
-            <td>${i}</td>
+            <td>${i+1}</td>
             <td>${dataPro[i].title}</td>
             <td>${dataPro[i].price}</td>
             <td>${dataPro[i].taxes}</td>
@@ -147,8 +147,8 @@ function showData(){
             <td>${dataPro[i].discount}</td>
             <td>${dataPro[i].total}</td>
             <td>${dataPro[i].category}</td>
-            <td><button id="update" onclick="updateData(${i})">update</button></td>
-            <td><button id="delete" onclick="deleteData(${i})">delete</button></td>
+            <td><button style="background-color: orange;" id="update" onclick="updateData(${i})">Update</button></td>
+            <td><button style="background-color: rgb(201, 56, 56); id="delete" onclick="deleteData(${i})">Delete</button></td>
         </tr>
    </tbody>`
      
@@ -165,7 +165,7 @@ function showData(){
 
     let btnDelete=document.getElementById('deleteAll');
     if(dataPro.length>0)
-       {btnDelete.innerHTML=`<button onclick="deleteAll()" id="update">delete All (${4})</button>`}
+       {btnDelete.innerHTML=`<button onclick="deleteAll()" id="update" style="background-color:  rgb(201, 56, 56);">delete All (${4})</button>`}
 
         else{
 
